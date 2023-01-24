@@ -41,9 +41,9 @@
             type="radio"
             (change)="swtichShowAnswer(answer)"
             [name]="question._id"
-            [id]="answer"
+            [id]="answer + question._id"
           />
-          <label class="form-check-label" [for]="answer">
+          <label class="form-check-label" [for]="answer + question._id">
             {{ answer }}
           </label>
         </div>

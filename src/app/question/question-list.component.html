@@ -1,0 +1,23 @@
+<div class="m-4">
+  <h1>Simulador 2.0</h1>
+  <p>Simulador no ofical de exámen de conducir</p>
+
+  <label>Cantidad de preguntas aprendidas</label>
+  <ngb-progressbar
+    type="success"
+    textType="white"
+    [value]="percentageOfLearnedQuestions"
+    [showValue]="true"
+  ></ngb-progressbar>
+</div>
+
+<div *ngIf="questions" class="container-fluid">
+  <div class="card-group">
+    <div class="col-12 col-md-6 my-3 px-2" *ngFor="let question of questions">
+      <question-card
+        [question]="question"
+        (markQuestionAsLearnedHandler)="markQuestionAsLearned($event)"
+      ></question-card>
+    </div>
+  </div>
+</div>

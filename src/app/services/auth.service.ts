@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
     const body = { username, password };
-    return this.http.post('http://localhost:3000/login', body);
+    return this.http.post(
+      'https://simulador-examen-conducir-node-nicolasbologna.vercel.app/login',
+      body
+    );
   }
 }

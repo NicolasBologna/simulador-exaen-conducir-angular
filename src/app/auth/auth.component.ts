@@ -5,25 +5,23 @@ import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
+  username = 'johndoe';
+  password = 'mysecretpassword';
 
-  username = '';
-  password = '';
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.authService.login(this.username, this.password)
-      .subscribe(
-        (res: any) => {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/questions']);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    this.authService.login(this.username, this.password).subscribe(
+      (res: any) => {
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/questions']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

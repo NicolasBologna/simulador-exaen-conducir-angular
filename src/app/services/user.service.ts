@@ -6,13 +6,20 @@ import { EnvironmentUrlService } from './environment-url.service';
 @Injectable({
   providedIn: 'root',
 })
-export class QuestionService {
+export class UserService {
   constructor(
     private http: HttpClient,
     private envService: EnvironmentUrlService
   ) {}
 
-  getAllQuestions(): Observable<any> {
-    return this.http.get(`${this.envService.urlAddress}/question`);
+  getUserData(userId: string): Observable<any> {
+    return this.http.get(`${this.envService.urlAddress}/user/${userId}`);
+  }
+
+  addQuestionLearned(userId: string, question: string) {
+
+    return this.http.patch(`${this.envService.urlAddress}/user/${userId}`, {
+      questionLearned: question,
+    });
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { getLogedUserId } from '../common/user-helper';
+import { Question } from '../models/question';
 import { QuestionService } from '../services/question.service';
-import { UserService } from '../services/user.services';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-question-list',
@@ -9,7 +10,7 @@ import { UserService } from '../services/user.services';
   styleUrls: ['./question-list.component.scss'],
 })
 export class QuestionListComponent implements OnInit {
-  questions: any;
+  questions: Question[] = [];
   userDiscardedQuestions: string[] = [];
   userId: string = '';
   percentageOfLearnedQuestions: number = 0;
@@ -51,7 +52,10 @@ export class QuestionListComponent implements OnInit {
       (this.userDiscardedQuestions.length / this.questions.length) * 100;
   };
 
-  filterDiscardedQuestion = (questions, questionId) => {
-    return questions.filter((q: { _id: string }) => q._id != questionId);
+  filterDiscardedQuestion = (
+    questions: Question[],
+    questionId: string
+  ): Question[] => {
+    return questions.filter((q) => q._id != questionId);
   };
 }

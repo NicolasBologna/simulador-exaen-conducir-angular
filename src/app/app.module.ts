@@ -8,14 +8,22 @@ import { QuestionListComponent } from './question/question-list.component';
 import { NgbModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionCardComponent } from './question/question-card/question-card.component';
 import { BootstrapIconsModule } from 'ng-bootstrap-icons';
-import { BookmarkCheck, CheckCircle } from 'ng-bootstrap-icons/icons';
+import { BookmarkCheck, CheckCircle, Linkedin } from 'ng-bootstrap-icons/icons';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { NgxDomConfettiModule } from 'ngx-dom-confetti';
+import { FooterComponent } from './footer/footer.component';
+import { SignupComponent } from './signup/signup.component';
+import {
+  ToastrModule,
+  ToastNoAnimation,
+  ToastNoAnimationModule,
+} from 'ngx-toastr';
 
 const icons = {
   BookmarkCheck,
   CheckCircle,
+  Linkedin,
 };
 
 @NgModule({
@@ -24,6 +32,8 @@ const icons = {
     QuestionListComponent,
     QuestionCardComponent,
     AuthComponent,
+    FooterComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +43,8 @@ const icons = {
     NgbModule,
     BootstrapIconsModule.pick(icons),
     NgbProgressbarModule,
-    NgxDomConfettiModule
+    NgxDomConfettiModule,
+    ToastrModule.forRoot(),
   ],
   exports: [BootstrapIconsModule],
   providers: [],

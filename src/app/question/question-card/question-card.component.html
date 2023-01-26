@@ -1,34 +1,18 @@
-<div
-  class="card h-100"
-  [ngClass]="{ 'slide-out-elliptic-left-bck': exitAnimation }"
->
+<div class="card h-100" [ngClass]="{ 'slide-out-elliptic-left-bck': exitAnimation }">
   <div class="card-body">
     <div class="row">
       <h6 class="card-title col-12 col-md-9">
-        <img
-          class="img-fluid card-img-top align-self-center"
-          [src]="question.image"
-          *ngIf="question.image"
-        />{{ question.question }}
+        <img class="img-fluid card-img-top align-self-center" [src]="question.image" *ngIf="question.image" />{{
+        question.question }}
       </h6>
 
-      <div
-        class="col-12 col-md-3 d-flex justify-content-around align-self-start"
-      >
-        <button
-          class="btn btn-primary"
-          placement="bottom"
-          ngbTooltip="marcar como aprendida"
-          (click)="markQuestionAsLearned(question._id)"
-        >
-          <bi name="check-circle" class="small"></bi>
+      <div class="col-12 col-md-3 d-flex justify-content-around align-self-start">
+        <button class="btn btn-primary" placement="bottom" ngbTooltip="marcar como aprendida"
+          (click)="markQuestionAsLearned(question._id)">
+          <bi name="check-circle" class="icon-small"></bi>
         </button>
-        <button
-          class="btn btn-danger"
-          placement="bottom"
-          ngbTooltip="marcar para revisión"
-        >
-          <bi name="bookmark-check" class="small"></bi>
+        <button class="btn btn-danger" placement="bottom" ngbTooltip="marcar para revisión">
+          <bi name="bookmark-check" class="icon-small"></bi>
         </button>
       </div>
     </div>
@@ -36,13 +20,8 @@
     <div class="my-3">
       <div *ngFor="let answer of question.answers">
         <div class="form-check my-3">
-          <input
-            class="form-check-input"
-            type="radio"
-            (change)="swtichShowAnswer(answer)"
-            [name]="question._id"
-            [id]="answer + question._id"
-          />
+          <input class="form-check-input" type="radio" (change)="swtichShowAnswer(answer)" [name]="question._id"
+            [id]="answer + question._id" />
           <label class="form-check-label" [for]="answer + question._id">
             {{ answer }}
           </label>
@@ -50,14 +29,11 @@
       </div>
     </div>
     <ng-container *ngIf="showAnswer">
-      <p
-        class="card-text"
-        [ngClass]="{
+      <p class="card-text" [ngClass]="{
           'correct-answer': isCorrect,
           'incorrect-answer': !isCorrect,
           'vibrate-1': showWrongAnimation
-        }"
-      >
+        }">
         {{ question.correctAnswer }}
       </p>
     </ng-container>

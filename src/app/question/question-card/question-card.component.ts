@@ -14,7 +14,7 @@ import {
 })
 export class QuestionCardComponent {
   @Input() question: any;
-  @ViewChild('confetti', { read: ElementRef }) confetti: ElementRef;
+  @ViewChild('confetti', { read: ElementRef }) confetti!: ElementRef;
   @Output() markQuestionAsLearnedHandler: EventEmitter<string> =
     new EventEmitter();
   public showAnswer: boolean = false;

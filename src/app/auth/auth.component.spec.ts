@@ -8,9 +8,8 @@ describe('AuthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
-    })
-    .compileComponents();
+      declarations: [AuthComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AuthComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,17 @@ describe('AuthComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Should be an empty userName', () => {
+    expect(component.username).toBe('');
+  });
+
+  it('Should be an empty password', () => {
+    expect(component.username).toBe('');
+  });
+
+  it('Should be a title', () => {
+    expect(component.username).toBe('');
   });
 });

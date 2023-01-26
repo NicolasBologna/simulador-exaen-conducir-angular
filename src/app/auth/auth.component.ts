@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  username = 'johndoe';
-  password = 'mysecretpassword';
+  username: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(
@@ -20,7 +25,10 @@ export class AuthComponent {
         this.router.navigate(['/questions']);
       },
       (err) => {
-        console.log(err);
+        this.toastr.error(
+          'Por favor, intentá otra vez',
+          'Usuario y/o contraseña incorrecta'
+        );
       }
     );
   }

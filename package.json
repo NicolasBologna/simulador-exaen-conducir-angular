@@ -25,6 +25,7 @@
     "jwt-decode": "^3.1.2",
     "ng-bootstrap-icons": "^13.1.2-canary.1",
     "ngx-dom-confetti": "^0.1.0",
+    "ngx-toastr": "^16.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
